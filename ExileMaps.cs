@@ -1,4 +1,4 @@
-﻿using ExileCore2;
+using ExileCore2;
 using ExileCore2.Shared.Nodes;
 using ExileCore2.PoEMemory;
 using ExileCore2.PoEMemory.MemoryObjects;
@@ -364,6 +364,10 @@ public class ExileMapsCore : BaseSettingsPlugin<ExileMapsSettings>
                 fontColor = map.NameColor;
                 backgroundColor = map.BackgroundColor;
             }
+        }
+
+        if (Settings.Features.DrawCitadelLineLabels && mapNode.Element.Area.Name.Contains("Citadel")) {
+            Graphics.DrawLine(GameController.Window.GetWindowRectangleTimeCache.Center, mapNode.Element.GetClientRect().Center, Settings.Graphics.MapLineWidth, fontColor);
         }
 
         DrawCenteredTextWithBackground(mapNode.Element.Area.Name.Trim().ToUpper(), mapNode.Element.GetClientRect().Center, fontColor, backgroundColor, true, 10, 3);
