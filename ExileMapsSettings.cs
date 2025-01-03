@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using ExileCore2;
@@ -95,6 +95,9 @@ public class FeatureSettings
     [ConditionalDisplay(nameof(DrawLines), true)]
     [Menu("Draw Labels on Waypoint Lines", "Draw the name and distance to the node on the indicator lines, if enabled")]
     public ToggleNode DrawLineLabels { get; set; } = new ToggleNode(true);
+
+    [Menu("Draw Citadel Lines", "Draw line to citadel, if enabled")]
+    public ToggleNode DrawCitadelLineLabels { get; set; } = new ToggleNode(true);
 
     // [Menu("[NYI] Draw Tower Range", "Draw a ring around towers to indicate their range.")]
     // public ToggleNode DrawTowerRange { get; set; } = new ToggleNode(true);
